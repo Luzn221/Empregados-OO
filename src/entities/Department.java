@@ -11,8 +11,6 @@ public class Department {
   private Address address;
   private List<Employee> employee = new ArrayList<>();
 
-  Employee emp = new Employee();
-
   public Department() {
   }
 
@@ -50,12 +48,19 @@ public class Department {
     return employee;
   }
 
-  public void setEmployee(List<Employee> employee) {
-    this.employee = employee;
+  public void addEmployee(Employee emps) {
+    employee.add(emps);
+  }
+
+  public void removeEmployee(Employee emps) {
+    employee.remove(emps);
   }
 
   public double payroll() {
-    double pay = 0;
-    return pay += emp.getSalary();
+    double soma = 0.0;
+    for (Employee pay : employee) {
+      soma += pay.getSalary();
+    }
+    return soma;
   }
 }
